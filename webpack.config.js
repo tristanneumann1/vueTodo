@@ -4,15 +4,15 @@ var webpack = require('webpack')
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    path: path.resolve(__dirname, './client/dist/'),
+    publicPath: './dist/',
     filename: 'build.js'
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [
+        use: [  
           'vue-style-loader',
           'css-loader'
         ],
@@ -64,7 +64,7 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '../[name].[ext]'
+          name: '[name].[ext]'
         }
       }
     ]

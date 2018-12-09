@@ -9,7 +9,7 @@ app.use(helmet());
 app.use(morgan('[:date[clf]] :method :status :url :res[content-length] - :response-time ms'));
 app.use(parser.urlencoded({extended: false}));
 
-app.use('/', express.static(path.join(__dirname, '../dist')));
+app.use('/', express.static(path.join(__dirname, '../client')));
 
 const port = process.env.PORT || 3000;
 
