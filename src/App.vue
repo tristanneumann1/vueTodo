@@ -48,7 +48,7 @@ export default {
   name: 'app',
   data () {
     return {
-      header: 'Put Your Header here',
+      header: 'Travaux chez moi',
       subtitle: 'Subtitle Here',
       list: [
         {
