@@ -2,7 +2,7 @@
   <div id="email-container">
     <div id="email-form">
       <button class="close" @click="showEmail()"></button>
-      <form @submit.prevent="send">
+      <form @submit.prevent="send()">
         <div class="nom-prenom">
           <div>
             <label for="nom">Nom</label> <br/><br/>
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+const axios = require('axios');
+
 export default {
   data() {
     return {
@@ -41,8 +43,24 @@ export default {
   },
   methods: {
     send() {
-      console.log('hi');
-    }
+      const data = {
+        'nom': this.nom,
+        'prenom': this.prenom,
+        'email': this.email,
+        'message': this.message.text,
+      };
+      const headers = {
+          'Content-Type': 'application/x-www-form-urlencoded',
+      };
+      axios({
+        method: 'post',
+        url: '/api/email',
+        data,
+        config: {
+          headers,
+        },
+      }).then(data => console.log(data));
+    },
   },
   props: ['showEmail'],
 }
