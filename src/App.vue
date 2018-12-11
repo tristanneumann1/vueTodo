@@ -3,9 +3,6 @@
     <div class="outer-container" :class="{dim: emailDisplay}">
       <img src="https://picsum.photos/200/300/?random">
       <h1>{{ header }}</h1>
-      <h2>
-        {{subtitle}}
-      </h2>
       <div class="p-container">
         <p class="paragraph">
           Nous rencontrons tous le même problème :  Nous avons besoin d’un électricien, d’un plombier, d’un peintre, pour une réparation ou pour des travaux ponctuels chez nous, et nous ne savons pas qui appeler.  Qui est fiable, compétent, et pas trop cher ?
@@ -40,7 +37,7 @@
         </p>
       </div>
     </div>
-    <email v-if="emailDisplay"/>
+    <email v-if="emailDisplay" v-bind="{showEmail}"/>
   </div>
 </template>
 
