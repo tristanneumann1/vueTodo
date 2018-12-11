@@ -7,6 +7,7 @@ const transporter = nodemailer.createTransport({
     pass:process.env.password,
   }
 });
+const footer = '\n\n\n';
 
 router.route('/email')
   .post((req, res) => {
@@ -15,7 +16,7 @@ router.route('/email')
       from: email,
       to: 'tristanneumann1@gmail.com',
       subject: `email from site: ${prenom} ${nom}`,
-      text: message,
+      text: message + footer + email,
     };
     transporter.sendMail(mailOptions, (err, info) => {
       if(err) {

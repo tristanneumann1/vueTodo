@@ -59,7 +59,11 @@ export default {
         config: {
           headers,
         },
-      }).then(data => console.log(data));
+      })
+      .then(data => this.showEmail())
+      .catch(err => {
+        alert('Pas de réponse du serveur');
+      });
     },
   },
   props: ['showEmail'],
