@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="outer-container" :class="{dim: emailDisplay, clear: !emailDisplay}">
-      <img src="https://picsum.photos/200/300/?random">
+      <img :src="pic" />
       <h1>{{ header }}</h1>
       <div class="p-container">
         <p class="paragraph">
@@ -49,6 +49,7 @@ export default {
   name: 'app',
   data () {
     return {
+      pic: `https://picsum.photos/200/300/?image=${1 + Math.floor(Math.random() * 1084)}`,
       emailDisplay: false,
       header: 'Travaux chez moi',
       subtitle: 'Subtitle Here',
@@ -92,6 +93,7 @@ export default {
   methods: {
     showEmail() {
       this.emailDisplay = !this.emailDisplay;
+      document.getElementsByTagName('body')[0].style.overflow = this.emailDisplay? 'hidden' : 'auto';
     },
   }
 }
