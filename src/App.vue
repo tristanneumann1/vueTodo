@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="outer-container" :class="{dim: emailDisplay}">
+    <div class="outer-container" :class="{dim: emailDisplay, clear: !emailDisplay}">
       <img src="https://picsum.photos/200/300/?random">
       <h1>{{ header }}</h1>
       <div class="p-container">
@@ -37,7 +37,9 @@
         </p>
       </div>
     </div>
-    <email v-if="emailDisplay" v-bind="{showEmail}"/>
+    <transition name="fade">
+      <email v-if="emailDisplay" v-bind="{showEmail}"/>
+    </transition>
   </div>
 </template>
 
@@ -96,6 +98,9 @@ export default {
 </script>
 
 <style lang="scss">
+
+@import './assets/animate.min.css';
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -116,7 +121,13 @@ export default {
 }
 
 .dim {
+  transition: filter 0.5s;
   filter: blur(3px);
+}
+
+.clear {
+  transition: filter 0.5s;
+  filter: blur(0);
 }
 
 h1, h2 {
@@ -132,5 +143,13 @@ h1, h2 {
 
 .inline-title {
   font-weight: 900;
+}
+
+.fade-enter-active {
+  animation: fadeIn 0.5s;
+}
+
+.fade-leave-active {
+  animation: fadeOut 0.5s;
 }
 </style>
