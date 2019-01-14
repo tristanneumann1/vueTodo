@@ -66,7 +66,7 @@ module.exports = {
         options: {
           name: '[name].[ext]'
         }
-      }
+      },
     ]
   },
   resolve: {

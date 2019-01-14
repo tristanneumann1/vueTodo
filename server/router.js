@@ -14,7 +14,7 @@ router.route('/email')
     const {nom, prenom, email, message} = req.body;
     const mailOptions = {
       from: email,
-      to: 'tristanneumann1@gmail.com',
+      to: 'Travauxchezmoi78@gmail.com',
       subject: `email from site: ${prenom} ${nom}`,
       text: message + footer + email,
     };

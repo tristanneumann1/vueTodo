@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <div class="outer-container" :class="{dim: emailDisplay, clear: !emailDisplay}">
-      <img :src="pic" />
+      <images />
+      <!-- <img :src="pic" /> -->
       <h1>{{ header }}</h1>
       <div class="p-container">
         <p class="paragraph">
@@ -27,7 +28,7 @@
           Les informations communiquées sont celles fournies par les clients eux-mêmes, mais elles restent entièrement anonymes.  
         </p>
         <p>
-          Afin d’avoir accès à Travaux chez moi, il suffit de transmettre à <a href="#" @click.prevent="showEmail()">travauxchezmoi@gmail.com</a> les informations listées ci-dessus pour au moins deux entreprises qui ont travaillé chez vous.  Vous recevrez ensuite par retour de mail le document Travaux chez moi présentant tous les commentaires reçus sur toute la gamme d’entreprises.  Au fur et mesure que de nouvelles informations seront reçues, vous recevrez un document actualisé.  Toute est gratuit ; il n’y aucune publicité.
+          Afin d’avoir accès à Travaux chez moi, il suffit de transmettre à <a href="#" @click.prevent="showEmail()">Travauxchezmoi78@gmail.com</a> les informations listées ci-dessus pour au moins deux entreprises qui ont travaillé chez vous.  Vous recevrez ensuite par retour de mail le document Travaux chez moi présentant tous les commentaires reçus sur toute la gamme d’entreprises.  Au fur et mesure que de nouvelles informations seront reçues, vous recevrez un document actualisé.  Toute est gratuit ; il n’y aucune publicité.
         </p>
         <p>
           Les entreprises sont également invitées à demander que leurs noms paraissent dans Travaux chez moi, et que leurs prestations soient évaluées.  Elles peuvent aussi demander une synthèse des évaluations leur concernant (les évaluations resteront toujours anonymes).  
@@ -45,11 +46,13 @@
 
 <script>
 import email from './components/email.vue';
+import Images from './components/Images.vue';
+
 export default {
   name: 'app',
   data () {
     return {
-      pic: `https://picsum.photos/200/300/?image=${1 + Math.floor(Math.random() * 1084)}`,
+      // pic: `https://picsum.photos/200/300/?image=${1 + Math.floor(Math.random() * 1084)}`,
       emailDisplay: false,
       header: 'Travaux chez moi',
       subtitle: 'Subtitle Here',
@@ -89,6 +92,7 @@ export default {
   },
   components: {
     email,
+    Images,
   },
   methods: {
     showEmail() {
